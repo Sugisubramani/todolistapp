@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Todo = require('../models/todomodel');
+
 // Add a new todo item
 router.post('/api/item', async (req, res) => {
   try {
@@ -14,7 +15,7 @@ router.post('/api/item', async (req, res) => {
 // Get all todo items
 router.get('/api/items', async (req, res) => {
   try {
-    const items = await Todo.find();
+    const items = await Todo.find().sort({ _id: -1 }); // Latest first
     res.status(200).json(items);
   } catch (err) {
     res.status(500).json({ error: err.message });
