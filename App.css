@@ -5,82 +5,145 @@
   background-color: #fff;
   width: 500px;
   margin: 50px auto;
-  padding: 10px;
-  border-radius: 8px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px #9a4ca4f7;
 }
-.App h1{
+
+body {
+  background-image: url("./bgimage.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh; 
+}
+
+.p{
+  color: #5f6261;
+}
+
+.App h1 {
   text-align: center;
+  font-family:  Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: #333;
 }
-.form{
+
+.form {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 12px
+  margin-bottom: 15px;
 }
-.form input[type="text"]{
-  padding:10px;
-  width: 85%;
-  border: 1px solid #eee;
+
+.form input[type="text"] {
+  padding: 12px;
+  width: 80%;
+  border: 1px solid #ddd;
   border-radius: 6px;
+  font-size: 16px;
 }
+
 .form input[type="text"]:focus,
-.form button[type="submit"]:focus{
-  outline:none;
+.form button[type="submit"]:focus {
+  outline: none;
+  border-color: #008080;
 }
-.form button[type="submit"]{
-  background-color: #008080;
+
+.form button[type="submit"] {
+  background-color: #25c8bd;
   color: #fff;
   border: none;
   border-radius: 6px;
-  padding: 10px;
-  cursor: pointer
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
-.todo-listItems{
+
+.form button[type="submit"]:hover {
+  background-color: #27a6a2;
+}
+
+.todo-listItems {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
-.todo-item{
-  display:flex;
+
+.todo-item {
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
-.item-content{
-  width: 60%
+
+.item-content {
+  width: 60%;
+  font-size: 16px;
+  color: #333;
+  font-family: cursive;
 }
-.todo-item button{
+
+.todo-item button {
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  padding: 8px
+  padding: 8px 12px;
+  font-size: 14px;
+  transition: all 0.3s ease;
 }
-.todo-item button:focus{
-  outline:none
+
+.todo-item button:focus {
+  outline: none;
 }
-.update-item{
-  background-color: goldenrod;
-  color:#fff;
+
+.update-item {
+  background-color: darkorchid;
+  color: #fff;
 }
-.delete-item{
-  background-color: red;
-  color:#fff;
+
+.update-item:hover {
+  background-color: #a32cc4;
 }
-.update-form{
+
+.delete-item {
+  background-color: #d9534f;
+  color: #fff;
+}
+
+.delete-item:hover {
+  background-color: #c9302c;
+}
+
+.update-form {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
-.update-new-input{
-  width: 80%;
+
+.update-new-input {
+  width: 75%;
   border-radius: 6px;
-  border: 1px solid #eee;
-  padding: 8px;
+  border: 1px solid darkorchid;
+  padding: 10px;
   outline: none;
+  font-size: 16px;
 }
-.update-new-btn{
+
+.update-new-btn {
   background-color: darkorchid;
   color: #fff;
   cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.update-new-btn:hover {
+  background-color: #a32cc4;
 }
