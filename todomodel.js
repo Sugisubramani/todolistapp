@@ -1,13 +1,14 @@
-//import mongoose to create mongoose model
 const mongoose = require('mongoose');
 
-//create Schema
 const TodoItemSchema = new mongoose.Schema({
-  item:{
-    type:String,
+  item: {
+    type: String,
     required: true
+  },
+  completed: {
+    type: Boolean,
+    default: false // New tasks are incomplete by default
   }
-})
+});
 
-//export this Schema
 module.exports = mongoose.model('todos', TodoItemSchema);
