@@ -13,13 +13,14 @@ function App() {
     const fetchItems = async () => {
       try {
         const res = await axios.get("http://localhost:5500/api/items");
-        setListItems(Array.isArray(res.data) ? res.data : []);
+        setListItems(res.data); // No need to reverse if MongoDB is already sorted
       } catch (err) {
         console.error("Error fetching items:", err);
       }
     };
     fetchItems();
   }, []);
+  
 
   const handleApi = async (method, url, data = {}) => {
     try {
@@ -35,9 +36,10 @@ function App() {
     e.preventDefault();
     if (!itemText) return;
     const newItem = await handleApi("post", "http://localhost:5500/api/item", { item: itemText });
-    if (newItem) setListItems([...listItems, newItem]);
+    if (newItem) setListItems([newItem, ...listItems]); // Add new item at the top
     setItemText("");
   };
+  
 
   // Update an item
   const updateItem = async (e) => {
@@ -61,7 +63,7 @@ function App() {
       <input
         className="update-new-input"
         type="text"
-        placeholder="New Item"
+        placeholder="New  Item"
         onChange={(e) => setUpdateItemText(e.target.value)}
         value={updateItemText}
       />
