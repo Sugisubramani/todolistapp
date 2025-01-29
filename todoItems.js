@@ -32,6 +32,21 @@ router.put('/api/item/:id', async (req, res) => {
   }
 });
 
+// Toggle complete status of a todo item
+router.put('/api/item/complete/:id', async (req, res) => {
+  try {
+    const item = await Todo.findById(req.params.id);
+    if (!item) {
+      return res.status(404).json({ message: "Item not found" });
+    }
+    item.completed = !item.completed; // Toggle completion status
+    await item.save();
+    res.status(200).json(item);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // Delete a todo item
 router.delete('/api/item/:id', async (req, res) => {
   try {
