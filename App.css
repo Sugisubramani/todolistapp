@@ -18,13 +18,13 @@ body {
   height: 100vh; 
 }
 
-.p{
+.p {
   color: #5f6261;
 }
 
 .App h1 {
   text-align: center;
-  font-family:  Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   color: #333;
 }
 
@@ -89,6 +89,7 @@ body {
   font-family: cursive;
 }
 
+/* Styling for all buttons */
 .todo-item button {
   border: none;
   border-radius: 6px;
@@ -96,12 +97,24 @@ body {
   padding: 8px 12px;
   font-size: 14px;
   transition: all 0.3s ease;
+  margin-right: 10px; /* Gap between buttons */
 }
 
 .todo-item button:focus {
   outline: none;
 }
 
+/* Complete button styling */
+button.complete-item {
+  background-color: #4caf50; /* Green background */
+  color: white;
+}
+
+button.complete-item:hover {
+  background-color: #45a049;
+}
+
+/* Update button styling */
 .update-item {
   background-color: darkorchid;
   color: #fff;
@@ -111,6 +124,7 @@ body {
   background-color: #a32cc4;
 }
 
+/* Delete button styling */
 .delete-item {
   background-color: #d9534f;
   color: #fff;
@@ -118,6 +132,12 @@ body {
 
 .delete-item:hover {
   background-color: #c9302c;
+}
+
+/* Styling for completed tasks */
+.completed {
+  text-decoration: line-through;
+  color: gray;
 }
 
 .update-form {
