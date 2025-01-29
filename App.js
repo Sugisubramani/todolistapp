@@ -20,7 +20,6 @@ function App() {
     };
     fetchItems();
   }, []);
-  
 
   const handleApi = async (method, url, data = {}) => {
     try {
@@ -39,7 +38,6 @@ function App() {
     if (newItem) setListItems([newItem, ...listItems]); // Add new item at the top
     setItemText("");
   };
-  
 
   // Update an item
   const updateItem = async (e) => {
@@ -49,6 +47,14 @@ function App() {
       setListItems(listItems.map((item) => (item._id === isUpdating ? updatedItem : item)));
       setIsUpdating("");
       setUpdateItemText("");
+    }
+  };
+
+  // Toggle completion status
+  const toggleComplete = async (id) => {
+    const updatedItem = await handleApi("put", `http://localhost:5500/api/item/complete/${id}`);
+    if (updatedItem) {
+      setListItems(listItems.map((item) => (item._id === id ? updatedItem : item)));
     }
   };
 
@@ -93,9 +99,12 @@ function App() {
                 renderUpdateForm(item._id)
               ) : (
                 <>
-                  <p className="item-content">{item.item}</p>
+                  <p className={`item-content ${item.completed ? "completed" : ""}`}>{item.item}</p>
                   <button className="update-item" onClick={() => setIsUpdating(item._id)}>Update</button>
                   <button className="delete-item" onClick={() => deleteItem(item._id)}>Delete</button>
+                  <button className="complete-item" onClick={() => toggleComplete(item._id)}>
+                    {item.completed ? "Undo" : "Complete"}
+                  </button>
                 </>
               )}
             </div>
